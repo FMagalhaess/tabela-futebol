@@ -13,5 +13,5 @@ RUN npm install
 EXPOSE 3001
 # Configurar os comandos para iniciar a aplicação de acordo com as boas práticas
 ENTRYPOINT [ "npm" ]
-CMD ["run", "dev"]
+CMD ["start", "run dev"]
 # Dica: Leia a seção Docker e Docker-compose no README para mais informações
