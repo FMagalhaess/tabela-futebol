@@ -1,4 +1,4 @@
 export default interface TTeams {
-    id: number;
-    teamName: string;
+  id: number;
+  teamName: string;
 }

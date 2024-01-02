@@ -4,13 +4,13 @@ import {
   InferAttributes,
   InferCreationAttributes,
   CreationOptional,
-} from "sequelize";
-import db from ".";
+} from 'sequelize';
+import db from '.';
 // import OtherModel from './OtherModel';
 
 class Matches extends Model<
-  InferAttributes<Matches>,
-  InferCreationAttributes<Matches>
+InferAttributes<Matches>,
+InferCreationAttributes<Matches>
 > {
   declare id: CreationOptional<number>;
   declare homeTeamId: number;
@@ -33,29 +33,29 @@ Matches.init(
       allowNull: false,
     },
     homeTeamGoals: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     awayTeamId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     awayTeamGoals: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     inProgress: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
     },
   },
   {
     sequelize: db,
-    modelName: "Matches",
-    tableName: "matches",
+    modelName: 'Matches',
+    tableName: 'matches',
     timestamps: false,
     underscored: true,
-  }
+  },
 );
 
 /**
