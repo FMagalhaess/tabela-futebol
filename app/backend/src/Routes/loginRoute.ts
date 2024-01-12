@@ -12,9 +12,6 @@ route.post('/', validateLogin, emailChecker, passwordChecker, loginController.lo
 route.get(
   '/role',
   authorizationProtocol,
-  validateLogin,
-  emailChecker,
-  passwordChecker,
   loginController.getRole,
 );
 

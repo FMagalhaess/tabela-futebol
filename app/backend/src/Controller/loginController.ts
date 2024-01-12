@@ -13,9 +13,10 @@ const findEmail = async (req: Request, res: Response) => {
   res.status(retorno.code).json(retorno.message);
 };
 const getRole = async (req: Request, res: Response) => {
+  const { authorization } = req.headers;
   // const { email } = req.body;
   // const retorno = await loginService.getRole(email);
-  const retorno = { code: 200, message: 'ok' };
+  const retorno = await loginService.getRole(authorization || '');
   res.status(retorno.code).json(retorno.message);
 };
 export default {

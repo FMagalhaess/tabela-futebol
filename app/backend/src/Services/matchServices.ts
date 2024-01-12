@@ -31,9 +31,14 @@ const getById = async (idToFind: any) => {
   ] });
   return retorno;
 };
+const matchFinish = async (idToFind: any) => {
+  const retorno = await Matches.update({ inProgress: false }, { where: { id: idToFind } });
+  return retorno;
+};
 export default {
   getAll,
   getAllInProgress,
   getAllFinished,
   getById,
+  matchFinish,
 };

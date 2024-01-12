@@ -24,8 +24,14 @@ const teamGetById = async (req: Request, res: Response) => {
   console.log(retorno);
   res.status(200).json(retorno);
 };
+const matchFinish = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  await matchesServices.matchFinish(id);
+  res.status(200).json({ message: 'Finished' });
+};
 
 export default {
   teamGetAll,
   teamGetById,
+  matchFinish,
 };

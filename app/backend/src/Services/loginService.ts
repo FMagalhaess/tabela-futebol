@@ -22,6 +22,10 @@ const checkPassword = async (email: string, password: string) => {
   }
   return { code: 200, message: passwordChecker };
 };
+const getRole = async (authorization: string) => {
+  const header : any = jwtChecker(authorization);
+  return { code: 200, message: { role: header.role } };
+};
 const login = async (email: string, password: string, authorization: any) => {
   const emailChecker = await findEmail(email);
   const emailFinder = await Users.findOne({ where: { email } });
@@ -51,4 +55,5 @@ const login = async (email: string, password: string, authorization: any) => {
 export default {
   login,
   findEmail,
+  getRole,
 };
