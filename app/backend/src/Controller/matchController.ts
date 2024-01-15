@@ -21,7 +21,6 @@ const teamGetAll = async (req: Request, res: Response) => {
 };
 const teamGetById = async (req: Request, res: Response) => {
   const retorno = await matchesServices.getById(req.params.id);
-  console.log(retorno);
   res.status(200).json(retorno);
 };
 const matchFinish = async (req: Request, res: Response) => {
@@ -29,9 +28,30 @@ const matchFinish = async (req: Request, res: Response) => {
   await matchesServices.matchFinish(id);
   res.status(200).json({ message: 'Finished' });
 };
-
+const matchEditGoals = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { homeTeamGoals, awayTeamGoals } = req.body;
+  const retorno = await matchesServices.matchEditGoals(
+    id,
+    homeTeamGoals,
+    awayTeamGoals,
+  );
+  console.log(retorno);
+  res.status(200).json(retorno);
+};
+const createMatch = async (req: Request, res: Response) => {
+  const { homeTeamId, awayTeamId, homeTeamGoals, awayTeamGoals } = req.body;
+  const retorno = await matchesServices
+    .createMatch(homeTeamGoals, awayTeamGoals, homeTeamId, awayTeamId);
+  if (retorno.code === 201) {
+    return res.status(retorno.code).json(retorno.message);
+  }
+  res.status(retorno.code).json({ message: retorno.message });
+};
 export default {
   teamGetAll,
   teamGetById,
   matchFinish,
+  matchEditGoals,
+  createMatch,
 };
