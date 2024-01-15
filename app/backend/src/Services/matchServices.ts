@@ -80,4 +80,5 @@ export default {
   matchFinish,
   matchEditGoals,
   createMatch,
+  checkTeams,
 };

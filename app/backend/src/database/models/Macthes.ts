@@ -19,6 +19,8 @@ InferCreationAttributes<Matches>
   declare awayTeamId: number;
   declare awayTeamGoals: number;
   declare inProgress: boolean;
+  declare homeTeam?: Teams;
+  declare awayTeam?: Teams;
 }
 
 Matches.init(
